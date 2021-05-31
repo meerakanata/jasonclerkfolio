@@ -1,0 +1,2301 @@
+$hamburger-padding-x           : 15px !default;
+$hamburger-padding-y           : 15px !default;
+$hamburger-layer-width         : 27px !default;
+$hamburger-layer-height        : 3px !default;
+$hamburger-layer-spacing       : 5px !default;
+$hamburger-layer-color         : #FFF !default;
+$hamburger-layer-border-radius : 0px !default;
+$hamburger-hover-opacity       : 0.7 !default;
+$hamburger-active-layer-color  : $hamburger-layer-color !default;
+$hamburger-active-hover-opacity: $hamburger-hover-opacity !default;
+
+//************** PACKAGE STYLING STARTS **************
+
+@import "../node_modules/hamburgers/_sass/hamburgers/hamburgers.scss";
+@import "../node_modules/swiper/components/navigation/navigation.scss";
+@import '../node_modules/swiper/swiper.scss';
+
+//************** PACKAGE STYLING ENDS **************
+
+
+//*********** SASS VARIABLES STARTS ***************
+
+$color-01: #0C1B1D;
+$color-02: #F4F6F4;
+$color-03: #FFFFFF;
+$color-04: #FB8B24;
+$color-05: #469FAF;
+$color-06: #828a8b;
+
+//*********** SASS VARIABLES ENDS ***************
+//********** FONT SETUP STARTS *************
+
+
+@font-face {
+    font-family: "IBMPlexSans";
+    src: url("./Fonts/IBMPlexSans-Regular.eot"); /* IE9 Compat Modes */
+    src: url("./Fonts/IBMPlexSans-Regular.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+        url("./Fonts/IBMPlexSans-Regular.otf") format("opentype"), /* Open Type Font */
+        url("./Fonts/IBMPlexSans-Regular.svg") format("svg"), /* Legacy iOS */
+        url("./Fonts/IBMPlexSans-Regular.ttf") format("truetype"), /* Safari, Android, iOS */
+        url("./Fonts/IBMPlexSans-Regular.woff") format("woff"), /* Modern Browsers */
+        url("./Fonts/IBMPlexSans-Regular.woff2") format("woff2"); /* Modern Browsers */
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Sunflower-Medium";
+    src: url("./Fonts/Sunflower-Medium.eot"); /* IE9 Compat Modes */
+    src: url("./Fonts/Sunflower-Medium.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+      url("./Fonts/Sunflower-Medium.otf") format("opentype"), /* Open Type Font */
+      url("./Fonts/Sunflower-Medium.svg") format("svg"), /* Legacy iOS */
+      url("./Fonts/Sunflower-Medium.ttf") format("truetype"), /* Safari, Android, iOS */
+      url("./Fonts/Sunflower-Medium.woff") format("woff"), /* Modern Browsers */
+      url("./Fonts/Sunflower-Medium.woff2") format("woff2"); /* Modern Browsers */
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Sunflower-Bold";
+    src: url("./Fonts/Sunflower-Bold.eot"); /* IE9 Compat Modes */
+    src: url("./Fonts/Sunflower-Bold.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+      url("./Fonts/Sunflower-Bold.otf") format("opentype"), /* Open Type Font */
+      url("./Fonts/Sunflower-Bold.svg") format("svg"), /* Legacy iOS */
+      url("./Fonts/Sunflower-Bold.ttf") format("truetype"), /* Safari, Android, iOS */
+      url("./Fonts/Sunflower-Bold.woff") format("woff"), /* Modern Browsers */
+      url("./Fonts/Sunflower-Bold.woff2") format("woff2"); /* Modern Browsers */
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Sunflower-Light";
+    src: url("./Fonts/Sunflower-Light.eot"); /* IE9 Compat Modes */
+    src: url("./Fonts/Sunflower-Light.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+      url("./Fonts/Sunflower-Light.otf") format("opentype"), /* Open Type Font */
+      url("./Fonts/Sunflower-Light.svg") format("svg"), /* Legacy iOS */
+      url("./Fonts/Sunflower-Light.ttf") format("truetype"), /* Safari, Android, iOS */
+      url("./Fonts/Sunflower-Light.woff") format("woff"), /* Modern Browsers */
+      url("./Fonts/Sunflower-Light.woff2") format("woff2"); /* Modern Browsers */
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+//********** FONT SETUP ENDS *************
+//********** MIXINS START *************
+
+
+@mixin fr {
+    display:flex;
+    flex-direction: row;
+}
+@mixin fc {
+    display:flex;
+    flex-direction: column;
+}
+@mixin endend {
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+@mixin startstart {
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+@mixin startend {
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+@mixin startcenter {
+    justify-content: flex-start;
+    align-items: center;
+}
+
+@mixin centercenter {
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin hundo {
+    width: 100%;
+    height: 100%;
+}
+@mixin mobCardfull {
+    width: 100%;
+    height: auto;
+    margin-bottom: 3%;
+    img{
+        @include hundo;
+    }
+}
+
+@mixin navLinkStyle {
+    color: $color-01;
+    font-family: 'IBMPlexSans';
+    font-size: 1em;
+}
+
+
+//*********** MIXINS END **************
+//********** MAIN STYLING STARTS **********
+#root{
+    width: 100%;
+    overflow-x: hidden;
+}
+    .app{
+        @include fc;
+        @include startcenter;
+        width: 100vw;
+        .body{
+            @include fr;
+            
+            .navigation{
+                @include fr;
+                justify-content: center;
+                align-items: flex-start;
+                position: relative;
+            }
+            .navigation__desk{
+                @include fr;
+                @include startstart;
+                transform: rotate(-90deg);
+                position: absolute;
+                top: 315px;
+                left: -290px;
+                .menu{
+                    @include fr;
+                    width: 126.98px;
+                    justify-content: space-between;
+                    margin-right: 175px;
+                    letter-spacing: 0.2px;
+                    
+                    .notCurrent{
+                        color: $color-01;
+                        text-decoration: none;
+                        font-family: 'IBMPlexSans';
+                        font-size: 1em;
+                        .navLinksUI {
+                            width: 0px;
+                            height: 0px;
+                            background: $color-04;
+                          }
+                    }
+                    .current{
+                        color: $color-01;
+                        font-family: 'IBMPlexSans';
+                        font-size: 1em;
+                        .navLinksUI {
+                            width: 100%;
+                            height: 4px;
+                            background: $color-04;
+                            border-radius: 2px;
+                            transition: width 0.2s ease;
+                        }
+                    }
+
+
+                }
+
+                .jayEmail > a{
+                    display: flex;
+                    color: $color-01;
+                    font-family: 'IBMPlexSans';
+                    font-size: 1em;
+                    text-decoration: none;
+                    letter-spacing: 0.2px; 
+
+                }
+                .jayEmail > a:hover{
+                    color: $color-04;
+                }
+                .jayEmail > a:active{
+                    color: $color-04;
+                }
+            }
+            .main{
+                .header{
+                    @include fr;
+                    @include startend;
+                    a{
+                        text-decoration: none;
+                    }
+                    .branding{
+                        @include fr;
+                        @include startend;
+                        color: $color-01;
+                        font-family: 'Sunflower-Medium';
+                        width: 100%;
+                        height: 230px;
+                        .jayName{
+                            font-size: 3em;
+                            margin: 0px 0 13.5px 37px;
+                        }
+                        .industry{
+                            @include fc;
+                            justify-content: flex-start;
+                            font-size: 1.25em;
+                            margin: 0px 0 25px 19px;
+                            line-height: 20px;
+                            .line1, .line2 {
+                                display: flex;
+
+                            }
+                        }
+                    }
+                    .burgerMenu, .smallBranding {
+                        display: none;
+                    } 
+                }
+            }
+        }
+        .footer{
+            @include fr;
+            justify-content: flex-end;
+            width: 982px;
+            height: 174px;
+            color: $color-01;
+            font-family: 'IBMPlexSans';
+            font-size: 0.75em;
+        }
+        .footer__copyright{
+            margin: 53px -77px 0px 0px;
+            letter-spacing: 0.2px;
+        }
+        .content__container {
+            display: flex;
+            background-color: $color-03;
+            width: 982px;
+            height: auto;
+            margin-top: 1%;
+            .homeGallery{
+                @include fc;
+                justify-content: space-around;
+                height: auto;
+                width: 100%;
+                background-color: $color-03;
+
+                .homeGallery__Main{
+                    @include fr;
+                    justify-content: center;
+                    height: auto;
+                    width: 100%;
+                    flex-wrap: wrap;
+                    
+                    .cardContainerDesk{
+                        width: 982px;
+                        height: auto;
+                        @include fr;
+                        justify-content: space-between;
+                        flex-wrap: wrap;
+                        img{
+                            margin-bottom: 7px;
+                        }
+                        span:hover{
+                            transform: scale(0.95);
+                            transition: all .4s ease;
+                        }
+                    }
+
+                    .cardContainerTab, .cardContainerMob{
+                        display: none;
+                    }
+                }
+            }
+            .projectContainer{
+                @include fc;
+                justify-content: flex-start;
+                width: 100%;
+                height: auto;
+                background-color: $color-03;
+                .newProjNavigationUI{
+                    @include fr;
+                    justify-content: flex-end;
+                    align-items: center;
+                    margin-bottom: 10px;
+                    .Prev, .Next {
+                        height: 36px;
+                    }
+                    .Prev > a, .Next > a{
+                        -webkit-tap-highlight-color: transparent;
+                    }
+                    .paginationContainer{
+                        width: 184px;
+                        height: 8.5px;
+                        @include fr;
+                        @include centercenter;
+                        margin: 0 7.5px;
+                        .unselectedBox{
+                            display: flex;
+                            width: 13px;
+                            height: 1px;
+                            background-color: $color-06;
+                            opacity: 1;
+                            border-radius: 1px;
+                        }
+                        .selectedBox{
+                            display: flex;
+                            width: 13px;
+                            height: 5px;
+                            background-color: $color-04;
+                            border-radius: 2px;
+                        }
+                    }
+                    .leftArrow, .rightArrow {
+                        width: 36px;
+                        height: 36px;
+                        z-index: 10000;
+                    }
+                    @media (hover: hover){
+                        .leftArrow:hover, .rightArrow:hover{
+                            path{
+                                stroke: $color-04;
+                            }  
+                        }
+                    }
+                    .leftArrow:focus, .rightArrow:focus{
+                        outline: none;
+                        #Oval{
+                            stroke: $color-01;
+                            stroke-width: 0.5px;
+                        }
+                        path{
+                            stroke-width: 1px;
+                            stroke: $color-01;
+                        } 
+                    }
+
+                    .leftArrow:active, .rightArrow:active {
+                        -webkit-tap-highlight-color: rgba(0,0,0,0);
+                        #Oval{
+                            stroke: $color-04;
+                            stroke-width: 1px;
+                        }
+                        path{
+                            stroke-width: 2px;
+                            stroke: $color-04;
+                        } 
+                    }
+                    .pageCount{
+                        @include fr;
+                        justify-content: space-between;
+                        width: 69.5px;
+                        margin: 0 11px;
+                        font-family: "Sunflower-Light";
+                        font-size: 1em;
+                        color: $color-01;
+
+                        .angledLine{
+                            border-right: $color-01 1px solid;
+                            transform: rotate(30deg);
+                        }
+                    }
+                }
+                .projMain{
+                    @include fr;
+                    justify-content: center;
+                    width: 100%;
+                    height: auto;
+                    .projMain__Left{
+                        @include fr;
+                        justify-content: center;
+                        width: 50%;
+                        height: auto;
+                        position: relative;
+                        .Num{
+                            display: flex;
+                            position: absolute;
+                            font-family: 'Sunflower-Medium';
+                            font-size: 239px;
+                            color: $color-03;
+                            top: -60px;
+                            right: 37px;
+                            z-index: 100;
+                        }
+
+                    }
+                    .projMain__Left-Nav{
+                        display: none;
+                    }
+                    .projMain__Left-Info{
+                        @include fc;
+                        justify-content: flex-start;
+                        width: 100%;
+                        height: 433px;
+                        background-color: $color-02;
+                        border-top-left-radius: 5px;
+                        border-bottom-left-radius: 5px;
+                        .Name{
+                            @include fr;
+                            justify-content: flex-start;
+                            color: $color-05;
+                            font-family: 'Sunflower-Medium';
+                            font-size: 2.25em;
+                            padding: 165px 37px 0px 37px;
+                        }
+                        .Heading{
+                            @include fr;
+                            justify-content: flex-start;
+                            color: $color-01;
+                            font-family: 'IBMPlexSans';
+                            font-size: 1.125em;
+                            line-height: 24px;
+                            padding: 24px 37px 0px 37px;
+                            letter-spacing: 0.5px;
+                        }
+                        #AboutHeadingMob{
+                            display: none;
+                        }
+                        .Description{
+                            @include fc;
+                            justify-content: flex-start;
+                            color: $color-01;
+                            font-family: 'IBMPlexSans';
+                            font-size: 1em;
+                            line-height: 24px;
+                            padding: 16px 37px 0px 37px;
+                            letter-spacing: 0.2px;
+                        }
+                    }
+                }
+                .projMain__Image{
+                    @include fr;
+                    justify-content: flex-start;
+                    background-color: $color-03;
+                    width: 50%;
+                    height: auto;
+                    position: relative;
+                    height: 433px;
+                    .landscapeImgOrient{
+                        display: flex;
+                        width: 100%;
+                        height: auto;
+                        div > div.swiper-wrapper > div.swiper-slide.swiper-slide-active > img{
+                            width: 491px;
+                        }
+                    }
+                    .portraitImgOrient{
+                        display: none;
+                    }
+                    .swiper-pagination{
+                        @include fr;
+                        @include centercenter;
+                        position: absolute;
+                        text-align: center;
+                        vertical-align: center;
+                        transition: 300ms opacity;
+                        transform: translate3d(0, 0, 0);
+                        z-index: 10;
+                    }
+                    .swiper-pagination-bullet{
+                        width: 40px;
+                        height: 1px;
+                        display: inline-block;
+                        vertical-align: center;
+                        border-radius: 2px;
+                        background: $color-06;
+                        opacity: 1;
+                        margin: 0;
+                    }
+                    .swiper-pagination-bullets{
+                        bottom: 15px;
+                    }
+                    .swiper-pagination-bullet-active{
+                        opacity: 1;
+                        height: 5px;
+                        background: $color-04;
+                    }
+                }
+                .projDetailTab{
+                    @include fr;
+                    justify-content: center;
+                    width: 100%;
+                    position: relative;
+                    .lineDetail{
+                        display: flex;
+                        position: absolute;
+                        top: 35px;
+                        left: 282px;
+                        width: 657px;
+                        border-top: $color-05 solid 1px;
+                        z-index: 2000;
+                    }
+
+                    .Collapsible {
+                        width: 100%;
+                    }
+                    .Collapsible__contentOuter{
+                        height: 485px;
+                    }
+                    .Collapsible__contentInner{
+                        height: 100%;
+                    }
+                    .Collapsible > div > div > div{
+                        height: 400px;
+                    }
+                    .Collapsible > div > div > div > div.swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets{
+                        @include fr;
+                        @include centercenter;
+        
+                        .swiper-pagination-bullet{
+                            display: flex;
+                            width: 20px;
+                            height: 1px;
+                            background-color: $color-06;
+                            opacity: 1;
+                            border-radius: 1px;
+                            margin: 0;
+                        }
+                        .swiper-pagination-bullet-active{
+                            display: flex;
+                            width: 20px;
+                            height: 5px;
+                            background-color: $color-04;
+                            border-radius: 2px;
+                        }
+                    }
+                    div > div > div > div > div.swiper-wrapper > div.swiper-slide.swiper-slide-active{
+                        @include fr;
+                        justify-content: center;
+                        width: 982px;
+                        height: 328px;
+                        margin-right: 10px;
+                        img{
+                            padding-left: 158px;
+                        }
+                        .slideBlurb{
+                            @include fr;
+                            @include centercenter;
+                            width: auto;
+                            font-family: 'IBMPlexSans';
+                            color: $color-01;
+                            font-size: 1em;
+                            letter-spacing: 0.2px;
+                            line-height: 24px;
+                            padding-left: 22px;
+                            padding-right: 158px;
+                        }
+
+                    }
+                    div > div > div > div > div.swiper-button-prev{
+                        width: calc(var(--swiper-navigation-size) / 11.1 * 27);
+                        content: url('./Icons/v3/Regular/Arrow/Left36.svg');
+                    }
+                    div > div > div > div > div.swiper-button-prev:hover{
+                        content: url('./Icons/v3/Hover/Arrow/Left36.svg');
+                    }
+                    div > div > div > div > div.swiper-button-prev:focus{
+                        content: url('./Icons/v3/Focused/Arrow/Left36.svg');
+                    }
+                    div > div > div > div > div.swiper-button-prev:active{
+                        content: url('./Icons/v3/Pressed/Arrow/Left36.svg');
+                    }
+                    div > div > div > div > div.swiper-button-next{
+                        width: calc(var(--swiper-navigation-size) / 11.1 * 27);
+                        content: url('./Icons/v3/Regular/Arrow/Right36.svg');
+                    }
+                    div > div > div > div > div.swiper-button-next:hover{
+                        content: url('./Icons/v3/Hover/Arrow/Right36.svg');
+                    }
+                    div > div > div > div > div.swiper-button-next:focus{
+                        content: url('./Icons/v3/Focused/Arrow/Right36.svg');
+                    }
+                    div > div > div > div > div.swiper-button-next:active{
+                        content: url('./Icons/v3/Pressed/Arrow/Right36.svg');
+                    }
+                    .Collapsible>span{
+                        @include fr;
+                        align-items: center;
+                        height: 50px;
+                        font-size: 1.125em;
+                        letter-spacing: 0.5px;
+                    }
+                    
+                    .Collapsible__trigger {
+                        font-weight: 400;
+                        text-decoration: none;
+                        position: relative;
+                        padding: 10px 10px 10px 37px;
+                        background: $color-03;
+                        color: $color-01;
+                        
+                        &:after {
+                            content: url('./Icons/v3/Regular/Expand36.svg');
+                            position: absolute;
+                            right: 0px;
+                            top: 25%;
+                            display: block;
+                            backface-visibility: hidden;
+                        }
+                        
+                        &.is-open {
+                            &:after {
+                            transform: rotateZ(45deg);
+                            }
+                        }
+                        
+                        &.is-disabled {
+                            opacity: 0.5;
+                            background-color: grey;
+                        }
+                    }
+                    .Collapsible__trigger:hover:after {
+                        content: url('./Icons/v3/Hover/Expand36.svg');
+                    }
+                    .Collapsible__trigger:focus:after {
+                        content: url('./Icons/v3/Focused/Expand36.svg');
+                    }
+                    .Collapsible__trigger:active:after {
+                        content: url('./Icons/v3/Pressed/Expand36.svg');
+                    }
+                }
+                .projDetailTab__sideRect{
+                    @include fc;
+                    justify-content: flex-start;
+                    width: 11%;
+                    background-color: $color-02;
+                    height: auto;
+                }
+                .projDetailTab__sideRect-Top{
+                    width: 100%;
+                    background-color: $color-03;
+                    height: 72px;
+                }
+                #aboutPage{
+                    flex-direction: row-reverse;
+                    #aboutInfo{
+                        background-color: $color-03;
+                        .Name{
+                            padding-top: 45px;
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+
+    //************** MAIN STYLING ENDS **************
+
+//************** MEDIA QUERIES STARTS **************
+@media (max-width: 1249px) 
+and (min-width: 1024px){
+    #root{
+        width: 100%;
+        overflow-x: hidden;
+    }
+    .app{
+        width: 100%;
+        .body{
+            width: 100%;
+            display: flex;
+            flex-direction: column-reverse;
+            position: relative;
+            .navigation{
+                display: flex;
+                position: relative;
+                top: 0px;
+                left: 0px;
+            }
+            .navigation__desk{
+                display: none;
+                .menu {
+                    transform: none;
+                }
+            }
+            .navigation__mob{
+                @include fc;
+                width: 100%;
+                align-items: center;
+                .menu{
+                    @include fc;
+                    @include startcenter;
+                    transform: none;
+                    padding: 0;
+                    width: 100%;
+                    display: flex;
+                    letter-spacing: 0.2px;
+                    a{
+                        margin-top: 60px;
+                    }
+                    a:active{
+                        color:$color-04;
+                        -webkit-tap-highlight-color: transparent;
+                    }
+                    
+                    .notCurrent{
+                        @include navLinkStyle;
+                        text-decoration: none;
+                        .navLinksUI {
+                            display: none;
+                        }
+                        #text{
+                            -webkit-tap-highlight-color: transparent;   
+                        }
+                        #text:active{
+                            -webkit-tap-highlight-color: transparent;
+                            color: $color-04;   
+                        }
+                    }
+                    .current{
+                        @include navLinkStyle;
+                        #text{
+                            -webkit-tap-highlight-color: transparent;   
+                        }
+                        #text:active{
+                            -webkit-tap-highlight-color: transparent;
+                            color: $color-04;   
+                        }
+                        .navLinksUI {
+                            display: flex;
+                            width: 100%;
+                            height: 4px;
+                            background: $color-04;
+                            border-radius: 2px;
+                            transition: width 0.2s ease;
+                        }
+
+                    }
+                }
+                .jayEmail{
+                    margin-top: 180px;
+                }
+                .jayEmail > a{
+                    color: $color-01;
+                    font-family: 'IBMPlexSans';
+                    font-size: 1em;
+                    text-decoration: none;
+                    letter-spacing: 0.2px;
+                    -webkit-tap-highlight-color: transparent;
+                }
+                .jayEmail > a:active{
+                    color: $color-04;
+                }
+            }
+            .main{
+                .header{
+                    display: flex;
+                    @include centercenter;
+                    position: relative;
+                    background-color: $color-03;
+                    width: 100%;
+                    .branding{
+                        display:none;
+                    }
+                    .burgerMenu{
+                        @include fr;
+                        @include centercenter;
+                        padding: 0; 
+                        height: 106px;        
+                    }
+                    .burgerMenu > button{
+                        display: flex;
+                        border: none;
+                        background-color: $color-03;
+                        background-image: none;
+                        -webkit-tap-highlight-color: transparent;
+                        .v3Burger:focus{
+                            outline: none;
+                            #Oval{
+                                stroke: $color-01;
+                            }
+                        }
+                        .v3Burger:active{
+                            #Oval{
+                                stroke: $color-04;
+                                stroke-width: 1px;
+                            }
+                            #Combined-Shape{
+                                stroke-width: 2px;
+                                stroke: $color-04;
+                            }
+                        }
+                        .v3Close:focus{
+                            outline: none;
+                            #Oval{
+                                stroke: $color-01;
+                            }
+                        }
+                        .v3Close:active{
+                            #Oval{
+                                stroke: $color-04;
+                                stroke-width: 1px;
+                            }
+                            path{
+                                stroke-width: 2px;
+                                stroke: $color-04;
+                            }
+                        }
+                    }
+                    div.smallBranding > a {
+                        text-decoration: none;
+                        -webkit-tap-highlight-color: transparent;
+                        color: $color-01;
+                    }
+                    .smallBranding{
+                        @include fc;
+                        position: absolute;
+                        font-family: 'Sunflower-Medium';
+                        font-size: 2em;
+                        right: 20px;
+                        line-height: 32px;      
+                        .topLine{
+                            display: flex;
+                            padding-right: 17px;
+                        }
+                        .bottomLine{
+                            @include fr;
+                            justify-content: flex-end;
+                        }
+                    }
+                }
+            }
+            .main .content{
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+            }
+            .main .content__container{
+                margin-top: 3%;
+                .cardContainerTab, .cardContainerMob{
+                    display:none;
+                }
+                .cardContainerDesk{
+                    display: flex;
+                }
+            }
+        }
+        .footer{
+            width: 100%;
+            height: 101px;
+            text-align: right;
+        }
+        .footer__copyright{
+            width: 79%;
+            margin: 50px 27px 0px 27px;
+            letter-spacing: 0.2px;
+        }
+        .footerHidden{
+            display: none;
+        }
+    }
+}
+@media (max-width: 1023px) 
+and (min-width: 768px){
+#root{
+    width: 100%;
+}
+.app{
+    width: 100%;
+    .body{
+        width: 100%;
+        display: flex;
+        flex-direction: column-reverse;
+        position: relative;
+        .navigation{
+            display: flex;
+            position: relative;
+            top: 0px;
+            left: 0px;
+        }
+        .navigation__desk{
+            display: none;
+            .menu {
+                transform: none;
+            }
+        }
+        .navigation__mob{
+            @include fc;
+            width: 100%;
+            align-items: center;
+            .menu{
+                @include fc;
+                @include startcenter;
+                transform: none;
+                padding: 0;
+                width: 100%;
+                display: flex;
+                letter-spacing: 0.2px;
+                a{
+                    margin-top: 60px;
+                }
+                a:active{
+                    color:$color-04;
+                    -webkit-tap-highlight-color: transparent;
+                }
+                
+                .notCurrent{
+                    @include navLinkStyle;
+                    text-decoration: none;
+                    .navLinksUI {
+                        display: none;
+                    }
+                    #text{
+                        -webkit-tap-highlight-color: transparent;   
+                    }
+                    #text:active{
+                        -webkit-tap-highlight-color: transparent;
+                        color: $color-04;   
+                    }
+                }
+                .current{
+                    @include navLinkStyle;
+                    #text{
+                        -webkit-tap-highlight-color: transparent;   
+                    }
+                    #text:active{
+                        -webkit-tap-highlight-color: transparent;
+                        color: $color-04;   
+                    }
+                    .navLinksUI {
+                        display: flex;
+                        width: 100%;
+                        height: 4px;
+                        background: $color-04;
+                        border-radius: 2px;
+                        transition: width 0.2s ease;
+                    }
+
+                }
+            }
+            .jayEmail{
+                margin-top: 180px;
+            }
+            .jayEmail > a{
+                color: $color-01;
+                font-family: 'IBMPlexSans';
+                font-size: 1em;
+                text-decoration: none;
+                letter-spacing: 0.2px;
+                -webkit-tap-highlight-color: transparent;
+            }
+            .jayEmail > a:active{
+                color: $color-04;
+            }
+        }
+        .main{
+            .header{
+                display: flex;
+                @include centercenter;
+                position: relative;
+                background-color: $color-03;
+                width: 100%;
+                .branding{
+                    display:none;
+                }
+                .burgerMenu{
+                    @include fr;
+                    @include centercenter;
+                    padding: 0; 
+                    height: 106px;        
+                }
+                .burgerMenu > button{
+                    display: flex;
+                    border: none;
+                    background-color: $color-03;
+                    background-image: none;
+                    -webkit-tap-highlight-color: transparent;
+                    .v3Burger:focus{
+                        outline: none;
+                        #Oval{
+                            stroke: $color-01;
+                        }
+                    }
+                    .v3Burger:active{
+                        #Oval{
+                            stroke: $color-04;
+                            stroke-width: 1px;
+                        }
+                        #Combined-Shape{
+                            stroke-width: 2px;
+                            stroke: $color-04;
+                        }
+                    }
+                    .v3Close:focus{
+                        outline: none;
+                        #Oval{
+                            stroke: $color-01;
+                        }
+                    }
+                    .v3Close:active{
+                        #Oval{
+                            stroke: $color-04;
+                            stroke-width: 1px;
+                        }
+                        path{
+                            stroke-width: 2px;
+                            stroke: $color-04;
+                        }
+                    }
+                }
+                div.smallBranding > a {
+                    text-decoration: none;
+                    -webkit-tap-highlight-color: transparent;
+                    color: $color-01;
+                }
+                .smallBranding{
+                    @include fc;
+                    position: absolute;
+                    font-family: 'Sunflower-Medium';
+                    font-size: 2em;
+                    right: 20px;
+                    line-height: 32px;      
+                    .topLine{
+                        display: flex;
+                        padding-right: 17px;
+                    }
+                    .bottomLine{
+                        @include fr;
+                        justify-content: flex-end;
+                    }
+                }
+            }
+            .content{
+                .content__container{
+                    width: 100%; 
+                    margin-top: 3%;
+                    .projectContainer {
+                        align-items: center;
+                    }
+                    .projMain{
+                        width: 728px;
+                    }
+                    div > div > div.projMain__Image{
+                        width: 50%;
+                        z-index: 6000;
+                        height: 320px;
+                        
+                        .landscapeImgOrient{
+                            display: flex;
+                            width: 100%;
+                            height: auto;
+                            div > div.swiper-wrapper > div.swiper-slide.swiper-slide-active > img {
+                                @include hundo;
+                            }
+                        }
+
+                        .portraitImgOrient{
+                            display: none;
+                        }
+                        #bioImg{
+                            width: 100%;
+                        }
+                        img{
+                            @include hundo;
+                        }
+                        div.swiper-container.swiper-container-initialized.swiper-container-horizontal.swiper-container-android > div.swiper-wrapper > div.swiper-slide.swiper-slide-prev > img{
+                            @include hundo;
+                        }
+                        div.swiper-container.swiper-container-initialized.swiper-container-horizontal.swiper-container-android > div.swiper-wrapper > div.swiper-slide.swiper-slide-active > img{
+                            @include hundo;
+                        }
+                        div.swiper-container.swiper-container-initialized.swiper-container-horizontal.swiper-container-android > div.swiper-wrapper > div.swiper-slide.swiper-slide-next > img{
+                            @include hundo;
+                        }
+                        .swiper-pagination{
+                            @include fr;
+                            @include centercenter;
+                            position: absolute;
+                            text-align: center;
+                            vertical-align: center;
+                            transition: 300ms opacity;
+                            transform: translate3d(0, 0, 0);
+                            z-index: 10;
+                        }
+                        .swiper-pagination-bullet{
+                            width: 40px;
+                            height: 1px;
+                            display: inline-block;
+                            vertical-align: center;
+                            border-radius: 2px;
+                            background: $color-06;
+                            opacity: 1;
+                            margin: 0;
+                        }
+                        .swiper-pagination-bullet-active{
+                            opacity: 1;
+                            height: 5px;
+                            background: $color-04;
+                        }
+                    }
+                    .projectContainer #aboutPage {
+                        flex-direction: column-reverse;
+                        #aboutInfo{
+                            border-top-left-radius: 0px;
+                            border-bottom-right-radius: 5px;
+                            //height: 480px;
+                            .Heading{
+                                display: flex;
+                            }
+                            #AboutHeadingMob{
+                                display: none;
+                                padding: 24px 0 0 0;
+                                flex-direction: column;
+                            }
+                            .Name{
+                                padding: 0;
+                            }
+                            .Description{
+                                padding: 16px 0px 0px 0px;
+                                font-size: 0.8em;
+                                z-index: 5000;
+                            }
+                        }
+                    }
+                    div > div > div.projMain__Left{
+                        width: 50%;
+                        height: 320px;
+                        #hideProjNav{
+                            display: none;
+                        }
+
+                        
+                        .Num{
+                            display: flex;
+                            position: absolute;
+                            font-family: 'Sunflower-Medium';
+                            font-size: 170px;
+                            color: $color-03;
+                            top: -42px;
+                            right: 0px;
+                            z-index: 100;
+
+                        }
+
+                    }
+                    div > div > div.projMain__Left-Nav{
+                        display: none;
+
+                    }
+                    div > div > div.projMain__Left-Info{
+                        border-top-left-radius: 0px;;    
+                        border-bottom-right-radius: 5px;
+                        padding: 0 6.25%;
+                        height: 320px;
+                        .Name{
+                            padding: 42.21px 0px 0px 0px;
+                            z-index: 300;
+                            font-size: 2em;
+                            z-index: 5000;
+                        }
+                        .Heading{
+                            padding: 24px 0 0 0;
+                            font-size: 1em;
+                            line-height: 1.25em;
+                            z-index: 5000;
+                        }                        
+                        #AboutHeadingMob{
+                            display: none;
+                        }
+                        .Description{
+                            padding: 16px 0px 0px 0px;
+                            font-size: 0.875em;
+                            z-index: 5000;
+                        }
+
+                    }
+                    .projectContainer .projDetailTab .lineDetail{
+                        margin-left: auto;
+                        margin-right: auto;
+                        left: 210px;
+                        right: 0;
+                        text-align: center;
+                        width: 350px;
+                    
+                    }
+                    .swiper-button-prev{
+                        display: none;
+                    }
+                    .swiper-button-next{
+                        display: none;
+                    }
+                    .projDetailTab > .Collapsible{
+                        width: 728px;
+                    }
+                    .projectContainer #aboutPage {
+                        flex-direction: row-reverse;
+                    }
+                    .projectContainer .projDetailTab > div.Collapsible > div > div > div > div.swiper-wrapper {
+                        padding-top: 30px;
+                        div.swiper-slide.swiper-slide-prev{
+                            @include fc;
+                            @include startcenter;
+                            margin-right: 10px;
+                            width: 400px;
+                            
+                            img{
+                                padding-left: 0;
+                                width: 400px;
+                            // width: 60%;
+
+                            }
+                            .slideBlurb{
+                                padding: 17.5px 41.5px;
+                                width: 400px;
+                            // width: 60%;
+
+                            }
+
+                        }
+                        div.swiper-slide.swiper-slide-active{
+                            @include fc;
+                            @include startcenter;
+                            width: 400px;
+                            img{
+                                padding-left: 0;
+                                width: 400px;
+                                //width: 60%;
+
+                            }
+                            .slideBlurb{
+                                padding: 17.5px 41.5px;
+                                width: 400px;
+                                //width: 60%;
+
+                            }
+                        }
+                        div.swiper-slide.swiper-slide-next{
+                            @include fc;
+                            @include startcenter;
+                            width: 400px;
+                            margin-left: 10px;
+                            img{
+                                padding-left: 0;
+                                width: 400px;
+                                //width: 60%;
+                            }
+                            .slideBlurb{
+                                padding: 17.5px 41.5px;
+                                width: 400px;
+                                //width: 60%;
+                            }
+                        }
+                    }
+                    .Collapsible__trigger{
+                        padding: 10px 6.25%;
+                        &:after {
+                            content: url('./Icons/v3/Regular/Expand.svg');
+                            top: 16%;
+                        }
+                        &:hover:after {
+                            content: url('./Icons/v3/Regular/Expand.svg');
+                            top: 16%;
+                        }
+                        &:active:after {
+                            content: url('./Icons/v3/Pressed/Expand.svg');
+                            top: 16%;
+                        }
+                    }
+                    .Collapsible__trigger:after{
+                        right: 14.5px;
+                    }
+                    .Collapsible > div > div > div{
+                        height: 440px;
+                    }
+                    .cardContainerDesk, .cardContainerMob{
+                        display:none;
+                    }
+                    .cardContainerTab{
+                        @include fr;
+                        justify-content: space-between;
+                        flex-wrap: wrap;
+                        padding: 0px;
+                        max-width: 728px;
+                        .sittris, .cuisipro1, .rideconcepts1, .gourmet-settings, .switch-vision, .cuisipro2, .foldinglawnchair, .roka2 {
+                            width: 49.4%;
+                        }
+                        .roka1, .xdclaymore, .revant, .case, .bangerz, .rideconcepts2, .thermos, .revo  {
+                            width: 24.1%;
+                        }
+                        img {
+                            width: 100%;
+                            margin-bottom: 1%;
+                        }
+                    }
+                }
+            }
+            .newProjNavigationUI{
+                @include fr;
+                @include centercenter;
+                width: 100%;
+                margin-bottom: 10px;
+                z-index: 10000;
+                .Prev, .Next{
+                    height: 48px;
+                }
+                .Prev > a, .Next > a{
+
+                    -webkit-tap-highlight-color: transparent;
+                }
+                .leftArrow, .rightArrow {
+                    width: 48px;
+                    height: 48px;
+                }
+                .paginationContainer{
+                    width: 184px;
+                    height: 8.5px;
+                    @include fr;
+                    @include centercenter;
+                    margin: 0 7.5px;
+                    .unselectedBox{
+                        display: flex;
+                        width: 13px;
+                        height: 1px;
+                        background-color: $color-06;
+                        opacity: 1;
+                        border-radius: 1px;
+                    }
+                    .selectedBox{
+                        display: flex;
+                        width: 13px;
+                        height: 5px;
+                        background-color: $color-04;
+                        border-radius: 2px;
+                    }
+                }
+                .pageCount{
+                    display: none;
+                }
+            }
+        }
+    }
+    .footer{
+        width: 100%;
+        height: 101px;
+        text-align: right;
+    }
+    .footer__copyright{
+        width: 79%;
+        margin: 50px 27px 0px 27px;
+        letter-spacing: 0.2px;
+    }
+    .footerHidden{
+        display: none;
+    }
+}
+}
+@media (max-width: 767px) 
+and (min-width: 600px){
+#root{
+    width: 100%;
+}
+.app{
+    width: 100%;
+    .body{
+        width: 100%;
+        display: flex;
+        flex-direction: column-reverse;
+        position: relative;
+        .navigation{
+            display: flex;
+            position: relative;
+            top: 0px;
+            left: 0px;
+        }
+        .navigation__desk{
+            display: none;
+            .menu {
+                transform: none;
+            }
+        }
+        .navigation__mob{
+            @include fc;
+            width: 100%;
+            align-items: center;
+            .menu{
+                @include fc;
+                @include startcenter;
+                transform: none;
+                padding: 0;
+                width: 100%;
+                display: flex;
+                letter-spacing: 0.2px;
+                a{
+                    margin-top: 60px;
+                }
+                a:active{
+                    color:$color-04;
+                    -webkit-tap-highlight-color: transparent;
+                }
+                
+                .notCurrent{
+                    @include navLinkStyle;
+                    text-decoration: none;
+                    .navLinksUI {
+                        display: none;
+                    }
+                    #text{
+                        -webkit-tap-highlight-color: transparent;   
+                    }
+                    #text:active{
+                        -webkit-tap-highlight-color: transparent;
+                        color: $color-04;   
+                    }
+                }
+                .current{
+                    @include navLinkStyle;
+                    #text{
+                        -webkit-tap-highlight-color: transparent;   
+                    }
+                    #text:active{
+                        -webkit-tap-highlight-color: transparent;
+                        color: $color-04;   
+                    }
+                    .navLinksUI {
+                        display: flex;
+                        width: 100%;
+                        height: 4px;
+                        background: $color-04;
+                        border-radius: 2px;
+                        transition: width 0.2s ease;
+                    }
+
+                }
+            }
+            .jayEmail{
+                margin-top: 180px;
+            }
+            .jayEmail > a{
+                color: $color-01;
+                font-family: 'IBMPlexSans';
+                font-size: 1em;
+                text-decoration: none;
+                letter-spacing: 0.2px;
+                -webkit-tap-highlight-color: transparent;
+            }
+            .jayEmail > a:active{
+                color: $color-04;
+            }
+        }
+        .main{
+            .header{
+                display: flex;
+                @include centercenter;
+                position: relative;
+                background-color: $color-03;
+                width: 100%;
+                .branding{
+                    display:none;
+                }
+                .burgerMenu{
+                    @include fr;
+                    @include centercenter;
+                    padding: 0; 
+                    height: 106px;        
+                }
+                .burgerMenu > button{
+                    display: flex;
+                    border: none;
+                    background-color: $color-03;
+                    background-image: none;
+                    -webkit-tap-highlight-color: transparent;
+                    .v3Burger:focus{
+                        outline: none;
+                        #Oval{
+                            stroke: $color-01;
+                        }
+                    }
+                    .v3Burger:active{
+                        #Oval{
+                            stroke: $color-04;
+                            stroke-width: 1px;
+                        }
+                        #Combined-Shape{
+                            stroke-width: 2px;
+                            stroke: $color-04;
+                        }
+                    }
+                    .v3Close:focus{
+                        outline: none;
+                        #Oval{
+                            stroke: $color-01;
+                        }
+                    }
+                    .v3Close:active{
+                        #Oval{
+                            stroke: $color-04;
+                            stroke-width: 1px;
+                        }
+                        path{
+                            stroke-width: 2px;
+                            stroke: $color-04;
+                        }
+                    }
+
+                }
+                
+                div.smallBranding > a {
+                    text-decoration: none;
+                    -webkit-tap-highlight-color: transparent;
+                    color: $color-01;
+                }
+                .smallBranding{
+                    @include fc;
+                    position: absolute;
+                    font-family: 'Sunflower-Medium';
+                    font-size: 2em;
+                    right: 20px;
+                    line-height: 32px;      
+
+                    
+                    .topLine{
+                        display: flex;
+                        padding-right: 17px;
+                    }
+                    .bottomLine{
+                        @include fr;
+                        justify-content: flex-end;
+                    }
+                }
+            }
+            .content{
+                div > div > div.projMain{
+                    flex-direction: column-reverse;
+                }
+                div > div > div.projMain__Image{
+                    @include hundo;
+                    z-index: 6000;
+                    .landscapeImgOrient{
+                        display: none;
+                    }
+
+                    .portraitImgOrient{
+                        display: flex;
+                        width: 100%;
+                        height: auto;
+                        img{
+                            @include hundo;
+                        }
+                    }
+                    #bioImg{
+                        width: 100%;
+                    }
+                    img{
+                        @include hundo;
+                    }
+                    div.swiper-container.swiper-container-initialized.swiper-container-horizontal.swiper-container-android > div.swiper-wrapper > div.swiper-slide.swiper-slide-prev > img{
+                        @include hundo;
+                    }
+                    div.swiper-container.swiper-container-initialized.swiper-container-horizontal.swiper-container-android > div.swiper-wrapper > div.swiper-slide.swiper-slide-active > img{
+                        @include hundo;
+                    }
+                    div.swiper-container.swiper-container-initialized.swiper-container-horizontal.swiper-container-android > div.swiper-wrapper > div.swiper-slide.swiper-slide-next > img{
+                        @include hundo;
+                    }
+                    .swiper-pagination{
+                        @include fr;
+                        @include centercenter;
+                        position: absolute;
+                        text-align: center;
+                        vertical-align: center;
+                        transition: 300ms opacity;
+                        transform: translate3d(0, 0, 0);
+                        z-index: 10;
+                    }
+                    .swiper-pagination-bullet{
+                        width: 40px;
+                        height: 1px;
+                        display: inline-block;
+                        vertical-align: center;
+                        border-radius: 2px;
+                        background: $color-06;
+                        opacity: 1;
+                        margin: 0;
+                    }
+                    .swiper-pagination-bullet-active{
+                        opacity: 1;
+                        height: 5px;
+                        background: $color-04;
+                    }
+                }
+                .projectContainer #aboutPage {
+                    flex-direction: column-reverse;
+                }
+                div > div > div.projMain__Left{
+                    width: 100%;
+                    #hideProjNav{
+                        display: none;
+                    }
+                    
+                    #aboutInfo{
+                        border-top-left-radius: 0px;
+                        border-bottom-right-radius: 5px;
+                        padding-bottom: 50px;
+                        height: 480px;
+                        .Heading{
+                            display: none;
+                        }
+                        #AboutHeadingMob{
+                            display: flex;
+                            padding: 24px 0 0 0;
+                            flex-direction: column;
+                        }
+                    }
+                    
+                    .Num{
+                        display: flex;
+                        position: absolute;
+                        font-family: 'Sunflower-Medium';
+                        font-size: 215px;
+                        color: $color-03;
+                        top: -55px;
+                        right: 0px;
+                        z-index: 100;
+
+                    }
+
+                }
+                div > div > div.projMain__Left-Nav{
+                    display: none;
+
+                }
+                div > div > div.projMain__Left-Info{
+                    border-top-left-radius: 0px;;    
+                    border-bottom-right-radius: 5px;
+                    padding: 0 6.25% 15.8% 6.25%;
+                    .Name{
+                        padding: 87.21px 0px 0px 0px;
+                        z-index: 300;
+                    }
+                    .Heading{
+                        padding: 24px 0 0 0;
+                    }                        
+                    #AboutHeadingMob{
+                        display: none;
+                    }
+                    .Description{
+                        padding: 16px 0px 0px 0px;
+                    }
+
+                }
+                div > div > div.projDetailTab > div.lineDetail{
+                    display: none;
+                }
+                .swiper-button-prev{
+                    display: none;
+                }
+                .swiper-button-next{
+                    display: none;
+                }
+                div > div > div.projDetailTab > div.Collapsible > 
+                div > div > div > div.swiper-wrapper {
+                    padding-top: 30px;
+                    div.swiper-slide.swiper-slide-prev{
+                        @include fc;
+                        @include startcenter;
+                        margin-right: 10px;
+                        width: 280px;
+                        
+                        img{
+                            padding-left: 0;
+                            width: 280px;
+                           // width: 60%;
+
+                        }
+                        .slideBlurb{
+                            padding: 17.5px 41.5px;
+                           // width: 60%;
+
+                        }
+
+                    }
+                    div.swiper-slide.swiper-slide-active{
+                        @include fc;
+                        @include startcenter;
+                        width: 280px;
+                        img{
+                            padding-left: 0;
+                            width: 280px;
+                            //width: 60%;
+
+                        }
+                        .slideBlurb{
+                            padding: 17.5px 41.5px;
+                            //width: 60%;
+
+                        }
+                    }
+                    div.swiper-slide.swiper-slide-next{
+                        @include fc;
+                        @include startcenter;
+                        width: 280px;
+                        margin-left: 10px;
+                        img{
+                            padding-left: 0;
+                            width: 280px;
+                            //width: 60%;
+                        }
+                        .slideBlurb{
+                            padding: 17.5px 41.5px;
+                            //width: 60%;
+                        }
+                    }
+                }
+                .Collapsible__trigger{
+                    padding: 10px 6.25%;
+                    &:after {
+                        content: url('./Icons/v3/Regular/Expand.svg');
+                        top: 16%;
+                    }
+                    &:hover:after {
+                        content: url('./Icons/v3/Regular/Expand.svg');
+                        top: 16%;
+                    }
+                    &:active:after {
+                        content: url('./Icons/v3/Pressed/Expand.svg');
+                        top: 16%;
+                    }
+                }
+                .Collapsible__trigger:after{
+                    right: 14.5px;
+                }
+                .Collapsible > div > div > div{
+                    height: 395.5px;
+                }
+                .cardContainerDesk, .cardContainerTab{
+                    display:none;
+                }
+                .cardContainerMob{
+                    @include fr;
+                    justify-content: space-between;
+                    flex-wrap: wrap;
+                    padding: 0 20px;
+                    max-width: 475px;
+                    .sittris, .cuisipro1, .rideconcepts1, .gourmet-settings, .switch-vision, .cuisipro2, .foldinglawnchair, .roka2 {
+                        width: 66%;
+                    }
+                    .roka1, .xdclaymore, .revant, .case, .bangerz, .rideconcepts2, .thermos, .revo  {
+                        width: 32%;
+                    }
+                    img {
+                        width: 100%;
+                        margin-bottom: 1%;
+                    }
+                }
+            }
+            .content__container{
+                width: 100%; 
+                margin-top: 3%;
+            }
+            .newProjNavigationUI{
+                @include fr;
+                @include centercenter;
+                width: 100%;
+                margin-bottom: 10px;
+                .Prev, .Next{
+                    height: 48px;
+                }
+                .Prev > a, .Next > a{
+
+                    -webkit-tap-highlight-color: transparent;
+                }
+                .leftArrow, .rightArrow {
+                    width: 48px;
+                    height: 48px;
+                }
+                .paginationContainer{
+                    width: 184px;
+                    height: 8.5px;
+                    @include fr;
+                    @include centercenter;
+                    margin: 0 7.5px;
+                    .unselectedBox{
+                        display: flex;
+                        width: 13px;
+                        height: 1px;
+                        background-color: $color-06;
+                        opacity: 1;
+                        border-radius: 1px;
+                    }
+                    .selectedBox{
+                        display: flex;
+                        width: 13px;
+                        height: 5px;
+                        background-color: $color-04;
+                        border-radius: 2px;
+                    }
+                }
+                .pageCount{
+                    display: none;
+                }
+            }
+        }
+    }
+    .footer{
+        width: 100%;
+        height: 101px;
+        text-align: right;
+    }
+    .footer__copyright{
+        width: 79%;
+        margin: 50px 27px 0px 27px;
+        letter-spacing: 0.2px;
+    }
+    .footerHidden{
+        display: none;
+    }
+}
+}
+@media (max-width: 599px) 
+and (min-width: 0px){
+#root{
+    width: 100%;
+}
+    .app{
+        width: 100%;
+        .body{
+            width: 100%;
+            display: flex;
+            flex-direction: column-reverse;
+            position: relative;
+            .navigation{
+                display: flex;
+                position: relative;
+                top: 0px;
+                left: 0px;
+            }
+            .navigation__desk{
+                display: none;
+                .menu {
+                    transform: none;
+                }
+            }
+            .navigation__mob{
+                @include fc;
+                width: 100%;
+                align-items: center;
+                .menu{
+                    @include fc;
+                    @include startcenter;
+                    transform: none;
+                    padding: 0;
+                    width: 100%;
+                    display: flex;
+                    letter-spacing: 0.2px;
+                    a{
+                        margin-top: 60px;
+                    }
+                    a:active{
+                        color:$color-04;
+                        -webkit-tap-highlight-color: transparent;
+                    }
+                    
+                    .notCurrent{
+                        @include navLinkStyle;
+                        text-decoration: none;
+                        .navLinksUI {
+                            display: none;
+                        }
+                        #text{
+                            -webkit-tap-highlight-color: transparent;   
+                        }
+                        #text:active{
+                            -webkit-tap-highlight-color: transparent;
+                            color: $color-04;   
+                        }
+                    }
+                    .current{
+                        @include navLinkStyle;
+                        #text{
+                            -webkit-tap-highlight-color: transparent;   
+                        }
+                        #text:active{
+                            -webkit-tap-highlight-color: transparent;
+                            color: $color-04;   
+                        }
+                        .navLinksUI {
+                            display: flex;
+                            width: 100%;
+                            height: 4px;
+                            background: $color-04;
+                            border-radius: 2px;
+                            transition: width 0.2s ease;
+                        }
+
+                    }
+                }
+                .jayEmail{
+                    margin-top: 180px;
+                }
+                .jayEmail > a{
+                    color: $color-01;
+                    font-family: 'IBMPlexSans';
+                    font-size: 1em;
+                    text-decoration: none;
+                    letter-spacing: 0.2px;
+                    -webkit-tap-highlight-color: transparent;
+                }
+                .jayEmail > a:active{
+                    color: $color-04;
+                }
+            }
+            .main{
+                .header{
+                    display: flex;
+                    @include centercenter;
+                    position: relative;
+                    background-color: $color-03;
+                    width: 100%;
+                    .branding{
+                        display:none;
+                    }
+                    .burgerMenu{
+                        @include fr;
+                        @include centercenter;
+                        padding: 0; 
+                        height: 106px;        
+                    }
+                    .burgerMenu > button{
+                        display: flex;
+                        border: none;
+                        background-color: $color-03;
+                        background-image: none;
+                        -webkit-tap-highlight-color: transparent;
+                        .v3Burger:focus{
+                            outline: none;
+                            #Oval{
+                                stroke: $color-01;
+                            }
+                        }
+                        .v3Burger:active{
+                            #Oval{
+                                stroke: $color-04;
+                                stroke-width: 1px;
+                            }
+                            #Combined-Shape{
+                                stroke-width: 2px;
+                                stroke: $color-04;
+                            }
+                        }
+                        .v3Close:focus{
+                            outline: none;
+                            #Oval{
+                                stroke: $color-01;
+                            }
+                        }
+                        .v3Close:active{
+                            #Oval{
+                                stroke: $color-04;
+                                stroke-width: 1px;
+                            }
+                            path{
+                                stroke-width: 2px;
+                                stroke: $color-04;
+                            }
+                        }
+
+                    }
+                    
+                    div.smallBranding > a {
+                        text-decoration: none;
+                        -webkit-tap-highlight-color: transparent;
+                        color: $color-01;
+                    }
+                    .smallBranding{
+                        @include fc;
+                        position: absolute;
+                        font-family: 'Sunflower-Medium';
+                        font-size: 2em;
+                        right: 20px;
+                        line-height: 32px;      
+
+                        
+                        .topLine{
+                            display: flex;
+                            padding-right: 17px;
+                        }
+                        .bottomLine{
+                            @include fr;
+                            justify-content: flex-end;
+                        }
+                    }
+                }
+                .content{
+                    div > div > div.projMain{
+                        flex-direction: column-reverse;
+                    }
+                    div > div > div.projMain__Image{
+                        @include hundo;
+                        z-index: 6000;
+                        .landscapeImgOrient{
+                            display: none;
+                        }
+
+                        .portraitImgOrient{
+                            display: flex;
+                            width: 100%;
+                            height: auto;
+                            img{
+                                @include hundo;
+                            }
+                        }
+                        #bioImg{
+                            width: 100%;
+                        }
+                        img{
+                            @include hundo;
+                        }
+                        div.swiper-container.swiper-container-initialized.swiper-container-horizontal.swiper-container-android > div.swiper-wrapper > div.swiper-slide.swiper-slide-prev > img{
+                            @include hundo;
+                        }
+                        div.swiper-container.swiper-container-initialized.swiper-container-horizontal.swiper-container-android > div.swiper-wrapper > div.swiper-slide.swiper-slide-active > img{
+                            @include hundo;
+                        }
+                        div.swiper-container.swiper-container-initialized.swiper-container-horizontal.swiper-container-android > div.swiper-wrapper > div.swiper-slide.swiper-slide-next > img{
+                            @include hundo;
+                        }
+                        .swiper-pagination{
+                            @include fr;
+                            @include centercenter;
+                            position: absolute;
+                            text-align: center;
+                            vertical-align: center;
+                            transition: 300ms opacity;
+                            transform: translate3d(0, 0, 0);
+                            z-index: 10;
+                        }
+                        .swiper-pagination-bullet{
+                            width: 40px;
+                            height: 1px;
+                            display: inline-block;
+                            vertical-align: center;
+                            border-radius: 2px;
+                            background: $color-06;
+                            opacity: 1;
+                            margin: 0;
+                        }
+                        .swiper-pagination-bullet-active{
+                            opacity: 1;
+                            height: 5px;
+                            background: $color-04;
+                        }
+                    }
+                    .projectContainer #aboutPage {
+                        flex-direction: column-reverse;
+                    }
+                    div > div > div.projMain__Left{
+                        width: 100%;
+                        #hideProjNav{
+                            display: none;
+                        }
+                        
+                        #aboutInfo{
+                            border-top-left-radius: 0px;
+                            border-bottom-right-radius: 5px;
+                            padding-bottom: 50px;
+                            height: 480px;
+                            .Heading{
+                                display: none;
+                            }
+                            #AboutHeadingMob{
+                                display: flex;
+                                padding: 24px 0 0 0;
+                                flex-direction: column;
+                            }
+                        }
+                        
+                        .Num{
+                            display: flex;
+                            position: absolute;
+                            font-family: 'Sunflower-Medium';
+                            font-size: 215px;
+                            color: $color-03;
+                            top: -55px;
+                            right: 0px;
+                            z-index: 100;
+
+                        }
+
+                    }
+                    div > div > div.projMain__Left-Nav{
+                        display: none;
+
+                    }
+                    div > div > div.projMain__Left-Info{
+                        border-top-left-radius: 0px;;    
+                        border-bottom-right-radius: 5px;
+                        padding: 0 6.25% 15.8% 6.25%;
+                        .Name{
+                            padding: 87.21px 0px 0px 0px;
+                            z-index: 300;
+                        }
+                        .Heading{
+                            padding: 24px 0 0 0;
+                        }                        
+                        #AboutHeadingMob{
+                            display: none;
+                        }
+                        .Description{
+                            padding: 16px 0px 0px 0px;
+                        }
+
+                    }
+                    div > div > div.projDetailTab > div.lineDetail{
+                        display: none;
+                    }
+                    .swiper-button-prev{
+                        display: none;
+                    }
+                    .swiper-button-next{
+                        display: none;
+                    }
+                    div > div > div.projDetailTab > div.Collapsible > 
+                    div > div > div > div.swiper-wrapper {
+                        padding-top: 30px;
+                        div.swiper-slide.swiper-slide-prev{
+                            @include fc;
+                            @include startcenter;
+                            margin-right: 10px;
+                            width: 280px;
+                            
+                            img{
+                                padding-left: 0;
+                                width: 280px;
+                               // width: 60%;
+
+                            }
+                            .slideBlurb{
+                                padding: 17.5px 41.5px;
+                               // width: 60%;
+
+                            }
+
+                        }
+                        div.swiper-slide.swiper-slide-active{
+                            @include fc;
+                            @include startcenter;
+                            width: 280px;
+                            img{
+                                padding-left: 0;
+                                width: 280px;
+                                //width: 60%;
+
+                            }
+                            .slideBlurb{
+                                padding: 17.5px 41.5px;
+                                //width: 60%;
+
+                            }
+                        }
+                        div.swiper-slide.swiper-slide-next{
+                            @include fc;
+                            @include startcenter;
+                            width: 280px;
+                            margin-left: 10px;
+                            img{
+                                padding-left: 0;
+                                width: 280px;
+                                //width: 60%;
+                            }
+                            .slideBlurb{
+                                padding: 17.5px 41.5px;
+                                //width: 60%;
+                            }
+                        }
+                    }
+                    .Collapsible__trigger{
+                        padding: 10px 6.25%;
+                        &:after {
+                            content: url('./Icons/v3/Regular/Expand.svg');
+                            top: 16%;
+                        }
+                        &:hover:after {
+                            content: url('./Icons/v3/Regular/Expand.svg');
+                            top: 16%;
+                        }
+                        &:active:after {
+                            content: url('./Icons/v3/Pressed/Expand.svg');
+                            top: 16%;
+                        }
+                    }
+                    .Collapsible__trigger:after{
+                        right: 14.5px;
+                    }
+                    .Collapsible > div > div > div{
+                        height: 395.5px;
+                    }
+                    .cardContainerDesk, .cardContainerTab{
+                        display:none;
+                    }
+                    .cardContainerMob{
+                        @include fr;
+                        justify-content: space-between;
+                        flex-wrap: wrap;
+                        padding: 0 20px;
+                        max-width: 475px;
+                        .sittris, .cuisipro1, .rideconcepts1, .gourmet-settings, .switch-vision, .cuisipro2, .foldinglawnchair, .roka2 {
+                            width: 66%;
+                        }
+                        .roka1, .xdclaymore, .revant, .case, .bangerz, .rideconcepts2, .thermos, .revo  {
+                            width: 32%;
+                        }
+                        img {
+                            width: 100%;
+                            margin-bottom: 1%;
+                        }
+                    }
+                }
+                .content__container{
+                    width: 100%; 
+                }
+                .newProjNavigationUI{
+                    @include fr;
+                    @include centercenter;
+                    width: 100%;
+                    margin-bottom: 10px;
+                    .Prev, .Next{
+                        height: 48px;
+                    }
+                    .Prev > a, .Next > a{
+
+                        -webkit-tap-highlight-color: transparent;
+                    }
+                    .leftArrow, .rightArrow {
+                        width: 48px;
+                        height: 48px;
+                    }
+                    .paginationContainer{
+                        width: 184px;
+                        height: 8.5px;
+                        @include fr;
+                        @include centercenter;
+                        margin: 0 7.5px;
+                        .unselectedBox{
+                            display: flex;
+                            width: 13px;
+                            height: 1px;
+                            background-color: $color-06;
+                            opacity: 1;
+                            border-radius: 1px;
+                        }
+                        .selectedBox{
+                            display: flex;
+                            width: 13px;
+                            height: 5px;
+                            background-color: $color-04;
+                            border-radius: 2px;
+                        }
+                    }
+                    .pageCount{
+                        display: none;
+                    }
+                }
+            }
+        }
+        .footer{
+            width: 100%;
+            height: 101px;
+            text-align: right;
+        }
+        .footer__copyright{
+            width: 79%;
+            margin: 50px 27px 0px 27px;
+            letter-spacing: 0.2px;
+        }
+        .footerHidden{
+            display: none;
+        }
+    }
+}
+//************** MEDIA QUERIES ENDS **************
+
+
+

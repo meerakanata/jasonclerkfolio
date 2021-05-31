@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="36px" height="36px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>v3/Focused/Expand</title>
+    <g id="v3/Focused/Expand" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <circle id="Oval" stroke="#0C1B1D" stroke-width="0.5" fill="#FFFFFF" cx="24" cy="24" r="20"></circle>
+        <path d="M24,13.70895 L24,34.29105 M34.29105,24 L13.70895,24" id="Combined-Shape" stroke="#0C1B1D" stroke-width="0.7623" stroke-linecap="square"></path>
+    </g>
+</svg>
