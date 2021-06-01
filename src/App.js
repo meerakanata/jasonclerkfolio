@@ -1,6 +1,6 @@
 //importing all packages, and components
 import React, { Component } from "react";
-import { BrowserRouter as Router, NavLink, Route, Switch, Redirect, Link} from 'react-router-dom';
+import { HashRouter as Router, NavLink, Route, Switch, Redirect, Link} from 'react-router-dom';
 import Work2 from "./Work2";
 import ProjectContainer from "./ProjectContainer.js"
 import Branding from "./Branding.js";
