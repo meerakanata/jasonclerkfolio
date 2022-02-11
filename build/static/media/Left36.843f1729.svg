@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="36px" height="36px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>v3/Regular/Arrow/Left</title>
+    <g id="v3/Regular/Arrow/Left" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <circle id="Oval" stroke="#FFFFFF" stroke-width="0.5" fill="#FFFFFF" cx="24" cy="24" r="20"></circle>
+        <path d="M33.8789591,31.178518 L21.5219231,31.178518 C20.4173536,31.178518 19.5219231,30.2830875 19.5219231,29.178518 L19.5219231,16.821482 L19.5219231,16.821482" id="Path" stroke="#0C1B1D" transform="translate(26.700441, 24.000000) rotate(-315.000000) translate(-26.700441, -24.000000) "></path>
+    </g>
+</svg>
