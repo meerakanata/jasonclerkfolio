@@ -1349,7 +1349,7 @@
 }
 
 :root {
-  --swiper-navigation-size: 36px;
+  --swiper-navigation-size: 44px;
   /*
   --swiper-navigation-color: var(--swiper-theme-color);
   */
@@ -1359,7 +1359,7 @@
 .swiper-button-next {
   position: absolute;
   top: 50%;
-  width: calc(var(--swiper-navigation-size) / 12.5 * 27);
+  width: calc(var(--swiper-navigation-size) / 44 * 27);
   height: var(--swiper-navigation-size);
   margin-top: calc(0px - (var(--swiper-navigation-size) / 2));
   z-index: 10;
@@ -1438,7 +1438,7 @@
 }
 
 :root {
-  --swiper-theme-color: #0C1B1D;
+  --swiper-theme-color: #007aff;
 }
 
 .swiper-container {
